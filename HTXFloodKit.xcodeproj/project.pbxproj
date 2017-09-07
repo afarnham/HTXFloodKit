@@ -10,6 +10,8 @@
 		93AD159D1F60F68E002A23B6 /* HTXFloodKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AD15931F60F68E002A23B6 /* HTXFloodKit.framework */; };
 		93AD15A21F60F68E002A23B6 /* HTXFloodKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AD15A11F60F68E002A23B6 /* HTXFloodKitTests.swift */; };
 		93AD15A41F60F68E002A23B6 /* HTXFloodKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD15961F60F68E002A23B6 /* HTXFloodKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93AD15AF1F60F746002A23B6 /* GageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AD15AD1F60F746002A23B6 /* GageCollection.swift */; };
+		93AD15B01F60F746002A23B6 /* HarrisFWSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AD15AE1F60F746002A23B6 /* HarrisFWSService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		93AD159C1F60F68E002A23B6 /* HTXFloodKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HTXFloodKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93AD15A11F60F68E002A23B6 /* HTXFloodKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTXFloodKitTests.swift; sourceTree = "<group>"; };
 		93AD15A31F60F68E002A23B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93AD15AD1F60F746002A23B6 /* GageCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GageCollection.swift; sourceTree = "<group>"; };
+		93AD15AE1F60F746002A23B6 /* HarrisFWSService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarrisFWSService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 		93AD15951F60F68E002A23B6 /* HTXFloodKit */ = {
 			isa = PBXGroup;
 			children = (
+				93AD15AD1F60F746002A23B6 /* GageCollection.swift */,
+				93AD15AE1F60F746002A23B6 /* HarrisFWSService.swift */,
 				93AD15961F60F68E002A23B6 /* HTXFloodKit.h */,
 				93AD15971F60F68E002A23B6 /* Info.plist */,
 			);
@@ -148,6 +154,7 @@
 				TargetAttributes = {
 					93AD15921F60F68E002A23B6 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 					};
 					93AD159B1F60F68E002A23B6 = {
 						CreatedOnToolsVersion = 9.0;
@@ -194,6 +201,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93AD15AF1F60F746002A23B6 /* GageCollection.swift in Sources */,
+				93AD15B01F60F746002A23B6 /* HarrisFWSService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +341,7 @@
 		93AD15A81F60F68E002A23B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 33L3C8BA8U;
@@ -344,6 +354,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.tinyrobot.HTXFloodKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -352,6 +363,7 @@
 		93AD15A91F60F68E002A23B6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 33L3C8BA8U;
@@ -372,6 +384,7 @@
 		93AD15AB1F60F68E002A23B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 33L3C8BA8U;
 				INFOPLIST_FILE = HTXFloodKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -385,6 +398,7 @@
 		93AD15AC1F60F68E002A23B6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 33L3C8BA8U;
 				INFOPLIST_FILE = HTXFloodKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
