@@ -1,4 +1,0 @@
-ubuntu-swift:
-  image: swiftdocker/swift
-  volumes:
-    - .:/code

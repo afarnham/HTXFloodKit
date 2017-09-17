@@ -26,13 +26,13 @@
 
 /* Begin PBXFileReference section */
 		93AD15931F60F68E002A23B6 /* HTXFloodKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HTXFloodKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		93AD15961F60F68E002A23B6 /* HTXFloodKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTXFloodKit.h; sourceTree = "<group>"; };
+		93AD15961F60F68E002A23B6 /* HTXFloodKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HTXFloodKit.h; path = ../Sources/HTXFloodKit/HTXFloodKit.h; sourceTree = "<group>"; };
 		93AD15971F60F68E002A23B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93AD159C1F60F68E002A23B6 /* HTXFloodKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HTXFloodKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93AD15A11F60F68E002A23B6 /* HTXFloodKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTXFloodKitTests.swift; sourceTree = "<group>"; };
 		93AD15A31F60F68E002A23B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93AD15AD1F60F746002A23B6 /* GageCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GageCollection.swift; sourceTree = "<group>"; };
-		93AD15AE1F60F746002A23B6 /* HarrisFWSService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarrisFWSService.swift; sourceTree = "<group>"; };
+		93AD15AD1F60F746002A23B6 /* GageCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GageCollection.swift; path = ../Sources/HTXFloodKit/GageCollection.swift; sourceTree = "<group>"; };
+		93AD15AE1F60F746002A23B6 /* HarrisFWSService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HarrisFWSService.swift; path = ../Sources/HTXFloodKit/HarrisFWSService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
