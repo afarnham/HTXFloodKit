@@ -10,7 +10,13 @@ class HTXFloodKitTests: XCTestCase {
     }
 
 
+	func testFetch() {
+		let service = HarrisFWSService()
+		print("SERVICE: \(service)")
+	}
+	
     static var allTests = [
         ("testExample", testExample),
+        ("testFetch", testFetch),
     ]
 }
