@@ -12,7 +12,16 @@ class HTXFloodKitTests: XCTestCase {
 
 	func testFetch() {
 		let service = HarrisFWSService()
-		print("SERVICE: \(service)")
+		let expectation = XCTestExpectation(description: "Download Flood Warning Service Gage info")
+    	service.requestGageCollection { someGageCollection, someError in
+    		if let gageCollection = someGageCollection {
+	    		print("Gage Data: \(gageCollection)")
+    			expectation.fulfill()    			
+    		} else {
+    			XCTFail("No gage data fetched")
+    		}
+    	}
+    	wait(for: [expectation], timeout: 10)
 	}
 	
     static var allTests = [
