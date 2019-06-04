@@ -10,13 +10,13 @@ class HTXFloodKitTests: XCTestCase {
     }
 
     func testService() {
-	    let service = HarrisFWSService()
-	    let expectation = XCTestExpectation(description: "test")
-	    service.requestGageCollection { (someGageCollection, someError) in
-		    print(someGageCollection)
-		    expectation.fulfill()
-	    }
-	    wait(for: [expectation], timeout: 10)
+//	    let service = HarrisFWSService()
+//	    let expectation = XCTestExpectation(description: "test")
+//	    service.requestGageCollection { (someGageCollection, someError) in
+//		    print(someGageCollection)
+//		    expectation.fulfill()
+//	    }
+//	    wait(for: [expectation], timeout: 10)
     }
 
     static var allTests = [

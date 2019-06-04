@@ -15,26 +15,29 @@ func encode<T: Encodable>(_ encodable: T) -> Either<Error, Data> {
 }
 
 func fetchGaugeInfo(completion: @escaping () -> Void) {
-// 	let logger = Logger(label: "com.tinyrobot.org.fws")
-//     let service = HarrisFWSService(logger: logger)
-//     let fileService = FileService(logger: logger)
+ 	var logger = Logger(label: "com.tinyrobot.org.fws")
+    logger.logLevel = .debug
+     let service = HarrisFWSService(logger: logger)
+     let fileService = FileService(logger: logger)
     
-//     let url = URL(fileURLWithPath:"/home/aaron/fws.json")
-//     let fetchGaugesEitherIO: EitherIO<Error, GaugeCollection> = service.fetchGages()
-//     let encodedF = fetchGaugesEitherIO
-//     >>= { gages in 
-//         lift( encode(gages) )
-//     }
-//   	let encodedF = fetchGaugesEitherIO <¢> encode
-//   	print(encodedF)
-//    service.fetchGauges()
-//		<¢> encode
-//		>>= curry(fileService.save)(url)
-//		.run
-//		.parallel
-//		.run { results in
-//			completion()
-//		}
+    let url = URL(fileURLWithPath:"/Users/aaron/fws.json")
+    service
+        .fetchGauges()
+        .map(encode)
+        .flatMap { (data) -> EitherIO<Error, Prelude.Unit> in
+            switch data {
+            case .left(let error):
+                return lift(.left(error))
+            case .right(let d):
+                return fileService.save(url, d)
+            }
+        }
+        .run
+        .parallel
+        .run { (result) in
+            print(result)
+            completion()
+        }
 }
 
 func main() {
