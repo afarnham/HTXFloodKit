@@ -11,7 +11,7 @@ let package = Package(
             name: "HTXFloodKit",
             targets: ["HTXFloodKit"]),
         .executable(name: "FloodServer", targets: ["FloodServer"]),
-        .executable(name: "GageFetcher", targets: ["GageFetcher"])
+        .executable(name: "GaugeFetcher", targets: ["GaugeFetcher"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -36,7 +36,7 @@ let package = Package(
             name: "FloodServer",
             dependencies: ["HTXFloodKit"]),
         .target(
-        	name: "GageFetcher",
+        	name: "GaugeFetcher",
         	dependencies: ["HTXFloodKit"]),
         .testTarget(
             name: "HTXFloodKitTests",

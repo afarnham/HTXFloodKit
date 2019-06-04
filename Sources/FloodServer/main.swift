@@ -6,7 +6,7 @@ import Logging
 func main() {
     let logger = Logger(label: "com.tinyrobot.org.fws")
     let service = HarrisFWSService(logger: logger)
-    service.fetchGages().run.parallel.run { result in
+    service.fetchGauges().run.parallel.run { result in
         print(result)
         exit(0)
     }

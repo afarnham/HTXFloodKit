@@ -1,5 +1,5 @@
 //
-//  GageCollection.swift
+//  GaugeCollection.swift
 //  HTXFloodKit
 //
 //  Created by Raymond Farnham on 9/1/17.
@@ -8,29 +8,29 @@
 
 import Foundation
 
-public struct GageCollectionDataRange: Codable {
+public struct GaugeCollectionDataRange: Codable {
     let StartDate: String?
     let EndDate: String
 }
 
-public struct GageCollectionProperties: Codable {
-    let DataRange: GageCollectionDataRange
+public struct GaugeCollectionProperties: Codable {
+    let DataRange: GaugeCollectionDataRange
 }
 
-public struct GageCollection: Codable {
+public struct GaugeCollection: Codable {
     let type: String
-    let properties: GageCollectionProperties
-    let features: [GageFeature]
+    let properties: GaugeCollectionProperties
+    let features: [GaugeFeature]
 }
 
-public struct GageGeometry: Codable {
+public struct GaugeGeometry: Codable {
     let type: String
     let coordinates: [Double]
     let offset: [Double]
     let Text: String
 }
 
-public struct GagePropertyStreamDataChannelInfo: Codable {
+public struct GaugePropertyStreamDataChannelInfo: Codable {
     let TOB: Double?
     let BOC: Double?
     let SensorId: Int
@@ -39,23 +39,23 @@ public struct GagePropertyStreamDataChannelInfo: Codable {
     let NoFloodCategory: Bool
 }
 
-public struct GagePropertyStreamData: Codable {
+public struct GaugePropertyStreamData: Codable {
     let CurrentLevel: Double
     let CurrentReadingDate: String
-    let ChannelInfo: GagePropertyStreamDataChannelInfo
+    let ChannelInfo: GaugePropertyStreamDataChannelInfo
 }
 
-public struct GageProperties: Codable {
+public struct GaugeProperties: Codable {
     let SiteId: Int
     let SiteType: String
     let Rainfall: Double
     let RainfallText: String
     let Description: String
-    let StreamData: [GagePropertyStreamData]?
+    let StreamData: [GaugePropertyStreamData]?
 }
     
-public struct GageFeature: Codable {
+public struct GaugeFeature: Codable {
     let type: String
-    let geometry: GageGeometry
-    let properties: GageProperties
+    let geometry: GaugeGeometry
+    let properties: GaugeProperties
 }

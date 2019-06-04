@@ -14,17 +14,17 @@ import Either
 import Optics
 
 public struct HarrisFWSService {
-    public var fetchGages: () -> EitherIO<Error, GageCollection>
+    public var fetchGauges: () -> EitherIO<Error, GaugeCollection>
     
-    public init(fetchGages: @escaping () -> EitherIO<Error, GageCollection>) {
-        self.fetchGages = fetchGages
+    public init(fetchGauges: @escaping () -> EitherIO<Error, GaugeCollection>) {
+        self.fetchGauges = fetchGauges
     }
 }
 
 extension HarrisFWSService {
     public init(logger: Logger?) {
         self.init(
-            fetchGages: { fetchGageCollection() |> runHarrisFWS(logger) }
+            fetchGauges: { fetchGaugeCollection() |> runHarrisFWS(logger) }
         )
     }
 }
@@ -67,7 +67,7 @@ private func fwsDataTask<A>(_ path: String) -> DecodableRequest<A> {
     )
 }
 
-func fetchGageCollection() -> DecodableRequest<GageCollection> {
+func fetchGaugeCollection() -> DecodableRequest<GaugeCollection> {
     return fwsDataTask("/Home/GetSiteRecentData")
 }
 
@@ -82,7 +82,7 @@ public class _HarrisFWSService {
     
     public init() {}
 
-    public func requestGageCollection(completion: @escaping (GageCollection?, Error?) -> Void) {
+    public func requestGaugeCollection(completion: @escaping (GaugeCollection?, Error?) -> Void) {
         guard let url = URL(string: recentDataPath) else {
             return
         }
@@ -117,14 +117,14 @@ public class _HarrisFWSService {
                 let jsonStr = String.init(data: data, encoding: .utf8) {
                 print(jsonStr)
                 let decoder = JSONDecoder()
-                let gageCollection = try! decoder.decode(GageCollection.self, from: data)
-                completion(gageCollection, nil)
+                let gaugeCollection = try! decoder.decode(GaugeCollection.self, from: data)
+                completion(gaugeCollection, nil)
             }
         }
         task?.resume()
     }
     
-    func currentGageCollectionReadings() -> GageCollection? {
+    func currentGaugeCollectionReadings() -> GaugeCollection? {
         return nil
     }
 }
