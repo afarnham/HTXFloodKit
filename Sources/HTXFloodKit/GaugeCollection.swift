@@ -9,53 +9,53 @@
 import Foundation
 
 public struct GaugeCollectionDataRange: Codable {
-    let StartDate: String?
-    let EndDate: String
+    public let StartDate: String?
+    public let EndDate: String
 }
 
 public struct GaugeCollectionProperties: Codable {
-    let DataRange: GaugeCollectionDataRange
+    public let DataRange: GaugeCollectionDataRange
 }
 
 public struct GaugeCollection: Codable {
-    let type: String
-    let properties: GaugeCollectionProperties
-    let features: [GaugeFeature]
+    public let type: String
+    public let properties: GaugeCollectionProperties
+    public let features: [GaugeFeature]
 }
 
 public struct GaugeGeometry: Codable {
-    let type: String
-    let coordinates: [Double]
-    let offset: [Double]
-    let Text: String
+    public let type: String
+    public let coordinates: [Double]
+    public let offset: [Double]
+    public let Text: String
 }
 
 public struct GaugePropertyStreamDataChannelInfo: Codable {
-    let TOB: Double?
-    let BOC: Double?
-    let SensorId: Int
-    let FloodStage: Bool?
-    let FloodLevelIndicator: Double?
-    let NoFloodCategory: Bool
+    public let TOB: Double?
+    public let BOC: Double?
+    public let SensorId: Int
+    public let FloodStage: Bool?
+    public let FloodLevelIndicator: Double?
+    public let NoFloodCategory: Bool
 }
 
 public struct GaugePropertyStreamData: Codable {
-    let CurrentLevel: Double
-    let CurrentReadingDate: String
-    let ChannelInfo: GaugePropertyStreamDataChannelInfo
+    public let CurrentLevel: Double
+    public let CurrentReadingDate: String
+    public let ChannelInfo: GaugePropertyStreamDataChannelInfo
 }
 
 public struct GaugeProperties: Codable {
-    let SiteId: Int
-    let SiteType: String
-    let Rainfall: Double
-    let RainfallText: String
-    let Description: String
-    let StreamData: [GaugePropertyStreamData]?
+    public let SiteId: Int
+    public let SiteType: String
+    public let Rainfall: Double
+    public let RainfallText: String
+    public let Description: String
+    public let StreamData: [GaugePropertyStreamData]?
 }
     
 public struct GaugeFeature: Codable {
-    let type: String
-    let geometry: GaugeGeometry
-    let properties: GaugeProperties
+    public let type: String
+    public let geometry: GaugeGeometry
+    public let properties: GaugeProperties
 }
