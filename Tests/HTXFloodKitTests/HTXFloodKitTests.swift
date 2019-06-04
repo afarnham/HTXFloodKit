@@ -9,8 +9,17 @@ class HTXFloodKitTests: XCTestCase {
         XCTAssertEqual(HTXFloodKit().text, "Hello, World!")
     }
 
+    func testService() {
+	    let service = HarrisFWSService()
+	    let expectation = XCTestExpectation(description: "test")
+	    service.requestGageCollection { (someGageCollection, someError) in
+		    print(someGageCollection)
+		    expectation.fulfill()
+	    }
+	    wait(for: [expectation], timeout: 10)
+    }
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testService", testService),
     ]
 }

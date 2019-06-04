@@ -7,8 +7,71 @@
 //
 
 import Foundation
+import Prelude
+import Tagged
+import Logging
+import Either
+import Optics
 
-class HarrisFWSService {
+public struct HarrisFWSService {
+    public var fetchGages: () -> EitherIO<Error, GageCollection>
+    
+    public init(fetchGages: @escaping () -> EitherIO<Error, GageCollection>) {
+        self.fetchGages = fetchGages
+    }
+}
+
+extension HarrisFWSService {
+    public init(logger: Logger?) {
+        self.init(
+            fetchGages: { fetchGageCollection() |> runHarrisFWS(logger) }
+        )
+    }
+}
+
+private let harrisFWSJsonDecoder = JSONDecoder()
+
+private func runHarrisFWS<A>(_ logger: Logger?) -> (DecodableRequest<A>) -> EitherIO<Error, A> {
+  return { harrisFWSRequest in
+    jsonDataTask(with: harrisFWSRequest.rawValue, decoder: harrisFWSJsonDecoder, logger: logger)
+  }
+}
+
+func fwsBody(_ url: URL) -> Data? {
+    let parameters = [
+        "regionId" : "1",
+        "timeSpan" : "7",
+        "dt" : "\(Date().timeIntervalSince1970)"
+    ]
+    let queryItems = parameters.map { URLQueryItem(name: $0, value: $1) }
+    var components = URLComponents(string: url.absoluteString)
+    components?.queryItems = queryItems
+        
+    return components?.percentEncodedQuery?.data(using: .utf8)
+}
+
+private func fwsDataTask<A>(_ path: String) -> DecodableRequest<A> {
+    let url = URL(string: "https://harriscountyfws.org" + path)!
+    return DecodableRequest(
+            rawValue: URLRequest(url: url)
+            |> \.allHTTPHeaderFields .~ [
+                "Content-Type" : "application/x-www-form-urlencoded; charset=UTF-8",
+                "Referer" : "https://www.harriscountyfws.org/",
+                "Accept" : "*/*",
+                "User-Agent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/603.2.4 (KHTML, like Gecko) Version/10.1.1 Safari/603.2.4",
+                "Origin" : "https://www.harriscountyfws.org",
+                "X-Requested-With" : "XMLHttpRequest"
+                ]
+            |> \.httpMethod .~ "POST"
+            |> \.httpBody .~ fwsBody(url)
+    )
+}
+
+func fetchGageCollection() -> DecodableRequest<GageCollection> {
+    return fwsDataTask("/Home/GetSiteRecentData")
+}
+
+public class _HarrisFWSService {
     let recentDataPath = "https://www.harriscountyfws.org/Home/GetSiteRecentData"
     let sessionConfig = URLSessionConfiguration.default
     lazy var session: URLSession = {
@@ -17,7 +80,9 @@ class HarrisFWSService {
     
     var task: URLSessionDataTask? = nil
     
-    func requestGageCollection(completion: @escaping (GageCollection?, Error?) -> Void) {
+    public init() {}
+
+    public func requestGageCollection(completion: @escaping (GageCollection?, Error?) -> Void) {
         guard let url = URL(string: recentDataPath) else {
             return
         }
