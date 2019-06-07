@@ -7,7 +7,11 @@ import Logging
 import HttpPipeline
 import Prelude
 
-
+#if os(Linux)
+let path = "/home/aaron/fws.json"
+#else
+let path = "/Users/aaron/fws.json"
+#endif
 
 func main() {
     var logger = Logger(label: "com.tinyrobot.org.fws")
@@ -15,7 +19,7 @@ func main() {
     let fileService = FileService(logger: logger)
     
     
-    let data = fileService.read(URL(fileURLWithPath: "/Users/aaron/fws.json")).run.perform().right!
+    let data = fileService.read(URL(fileURLWithPath: path)).run.perform().right!
     let json = String(data: data, encoding: .utf8) ?? "{error: \"Unable to read json\"}"
 
 //    let document: Node = doctype

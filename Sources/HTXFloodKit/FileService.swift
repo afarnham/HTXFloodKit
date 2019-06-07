@@ -22,6 +22,7 @@ func runSave(_ logger: Logger?) -> (URL, Data) -> EitherIO<Error, Prelude.Unit> 
 		return .init(
 		    run: .init { callback in
 		    	do {
+                    logger?.debug("Writing \(url)")
 			    	try data.write(to: url, options: .init(rawValue: 0))
 			    	callback(.right(unit))
 		    	} catch {

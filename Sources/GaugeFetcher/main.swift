@@ -4,6 +4,11 @@ import Either
 import HTXFloodKit
 import Logging
 
+#if os(Linux)
+let path = "/home/aaron/fws.json"
+#else
+let path = "/Users/aaron/fws.json"
+#endif
 
 func encode<T: Encodable>(_ encodable: T) -> Either<Error, Data> {
 	let encoder = JSONEncoder()
@@ -20,7 +25,7 @@ func fetchGaugeInfo(completion: @escaping () -> Void) {
      let service = HarrisFWSService(logger: logger)
      let fileService = FileService(logger: logger)
     
-    let url = URL(fileURLWithPath:"/Users/aaron/fws.json")
+    let url = URL(fileURLWithPath:path)
     service
         .fetchGauges()
         .map(encode)
