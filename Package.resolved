@@ -11,12 +11,12 @@
         }
       },
       {
-        "package": "OpenSSL",
-        "repositoryURL": "https://github.com/IBM-Swift/OpenSSL.git",
+        "package": "HouFloodModel",
+        "repositoryURL": "https://github.com/afarnham/HouFloodModel.git",
         "state": {
-          "branch": null,
-          "revision": "6c7e2e3610037fbc05c0d846cec981518961d8bf",
-          "version": "2.2.2"
+          "branch": "master",
+          "revision": "d554e75f4fbc786e0ac6be9fe7d812430fd3867f",
+          "version": null
         }
       },
       {

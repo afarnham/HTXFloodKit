@@ -12,6 +12,7 @@ import Tagged
 import Logging
 import Either
 import Optics
+import HouFloodModel
 
 public struct HarrisFWSService {
     public var fetchGauges: () -> EitherIO<Error, GaugeCollection>

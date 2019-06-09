@@ -16,6 +16,7 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0")
+        .package(url: "https://github.com/afarnham/HouFloodModel.git", .branch("master")),
         .package(url: "https://github.com/pointfreeco/swift-prelude.git", .branch("swift-5")),
 		.package(url: "https://github.com/pointfreeco/swift-tagged.git", from: "0.4.0"),
         .package(url: "https://github.com/apple/swift-log.git", from: "1.0.0"),
@@ -31,7 +32,8 @@ let package = Package(
                     "Either", 
                     "Tagged", 
                     "Optics", 
-                    "Logging"
+                    "Logging",
+                    "HouFloodModel"
             ]),
         .target(
             name: "FloodServer",
