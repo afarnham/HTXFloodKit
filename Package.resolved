@@ -15,7 +15,7 @@
         "repositoryURL": "https://github.com/afarnham/HouFloodModel.git",
         "state": {
           "branch": "master",
-          "revision": "d554e75f4fbc786e0ac6be9fe7d812430fd3867f",
+          "revision": "d8c09ac9fff9608413aa735d280fff3f8c1da15a",
           "version": null
         }
       },
@@ -65,20 +65,11 @@
         }
       },
       {
-        "package": "NonEmpty",
-        "repositoryURL": "https://github.com/pointfreeco/swift-nonempty.git",
-        "state": {
-          "branch": null,
-          "revision": "2051d80bcc1510f14508c942d64b5c6364ed1bdc",
-          "version": "0.2.0"
-        }
-      },
-      {
         "package": "Prelude",
         "repositoryURL": "https://github.com/pointfreeco/swift-prelude.git",
         "state": {
           "branch": "swift-5",
-          "revision": "3f06eada6a03c8cc4638892be6eec925ce2bb1d7",
+          "revision": "e81861a51f55079387c4fd2c46360675bda9169c",
           "version": null
         }
       },
@@ -102,10 +93,10 @@
       },
       {
         "package": "Web",
-        "repositoryURL": "https://github.com/afarnham/swift-web.git",
+        "repositoryURL": "https://github.com/pointfreeco/swift-web.git",
         "state": {
           "branch": "swift-5",
-          "revision": "162348e1a15dfee79036bd473529fc6ce6665f8e",
+          "revision": "1628ca3edc72027f59ad02afd716d14c1cf41384",
           "version": null
         }
       }
