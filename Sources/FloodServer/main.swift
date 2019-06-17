@@ -8,7 +8,7 @@ import HttpPipeline
 import Prelude
 
 #if os(Linux)
-let path = "/home/aaron/fws.json"
+let path = "/home/fwsserver/website/data/fws.json"
 #else
 let path = "/Users/aaron/fws.json"
 #endif
